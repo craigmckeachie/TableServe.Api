@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37411.7 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableServe.Api", "TableServe.Api.csproj", "{24434141-4531-4DC6-A70B-C67FD2969561}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24434141-4531-4DC6-A70B-C67FD2969561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24434141-4531-4DC6-A70B-C67FD2969561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24434141-4531-4DC6-A70B-C67FD2969561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24434141-4531-4DC6-A70B-C67FD2969561}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00F14F7F-95A5-4C4F-B600-6FC2E5091B42}
+	EndGlobalSection
+EndGlobal

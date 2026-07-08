@@ -1,0 +1,6 @@
+@TableServe.Api_HostAddress = http://localhost:5169
+
+GET {{TableServe.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
