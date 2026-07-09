@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using TableServe.Api.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<TableServeDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TableServeDb")));
 
 // Add services to the container.
 
