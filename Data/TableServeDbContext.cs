@@ -10,7 +10,8 @@ namespace TableServe.Api.Data
 
         }
 
-        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Staff> Staff { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
     }
 }
