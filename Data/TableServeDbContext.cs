@@ -14,5 +14,8 @@ namespace TableServe.Api.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+
     }
 }

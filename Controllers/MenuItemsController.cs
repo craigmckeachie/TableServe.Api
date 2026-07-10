@@ -5,6 +5,8 @@ using TableServe.Api.Models;
 
 namespace TableServe.Api.Controllers
 {
+    
+
     [Route("api/[controller]")]
     [ApiController]
     public class MenuItemsController : ControllerBase
@@ -20,14 +22,14 @@ namespace TableServe.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MenuItem>>> GetAll()
         {
-            return await _db.MenuItems.ToListAsync();
+            return await _db.MenuItems.Include(menuItem => menuItem.Category).ToListAsync();
         }
 
         // GET: api/menuitems/5
         [HttpGet("{id}")]
         public async Task<ActionResult<MenuItem>> GetById(int id)
         {
-            var menuItem = await _db.MenuItems.FindAsync(id);
+            var menuItem = await _db.MenuItems.Include(menuItem => menuItem.Category).SingleOrDefaultAsync((menuItem)=> menuItem.Id == id);
             if (menuItem == null) return NotFound();
             return menuItem;
         }
