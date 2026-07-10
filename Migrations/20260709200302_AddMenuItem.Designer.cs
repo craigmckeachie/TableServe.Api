@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TableServe.Api.Data;
 
@@ -10,9 +11,11 @@ using TableServe.Api.Data;
 namespace TableServe.Api.Migrations
 {
     [DbContext(typeof(TableServeDbContext))]
-    partial class TableServeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260709200302_AddMenuItem")]
+    partial class AddMenuItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

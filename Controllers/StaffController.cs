@@ -31,5 +31,59 @@ namespace TableServe.Api.Controllers
             if (staff == null) return NotFound();
             return staff;
         }
+
+        // POST: api/Staff
+        [HttpPost]
+        public async Task<ActionResult<Staff>> Create(Staff newStaff)
+        {
+            newStaff.Password = BCrypt.Net.BCrypt.HashPassword(newStaff.Password);
+            _db.Staff.Add(newStaff);
+            await _db.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetById), new { id = newStaff.Id }, newStaff);
+        }
+
+        // PUT: api/Staff/5
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Staff>> Update(int id, Staff updatedStaff)
+        {
+            if (id != updatedStaff.Id)
+            {
+                return BadRequest();
+            }
+
+            var currentStaff = await _db.Staff.FindAsync(id);
+            if (currentStaff == null)
+            {
+                return NotFound();
+            }
+
+            if (updatedStaff.Password != currentStaff.Password)
+            {
+                updatedStaff.Password = BCrypt.Net.BCrypt.HashPassword(updatedStaff.Password);
+            }
+
+            _db.Entry(currentStaff).CurrentValues.SetValues(updatedStaff);
+            await _db.SaveChangesAsync();
+
+            return Ok(currentStaff);
+        }
+
+        // DELETE: api/Staff/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var staff = await _db.Staff.FindAsync(id);
+            if (staff == null)
+            {
+                return NotFound();
+            }
+
+            _db.Staff.Remove(staff);
+            await _db.SaveChangesAsync();
+
+            return NoContent();
+        }
+
     }
 }

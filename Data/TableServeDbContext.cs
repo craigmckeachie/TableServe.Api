@@ -12,6 +12,7 @@ namespace TableServe.Api.Data
 
         public DbSet<Staff> Staff { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<MenuItem> MenuItems { get; set; }
 
     }
 }
