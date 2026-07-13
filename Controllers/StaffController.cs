@@ -17,6 +17,23 @@ namespace TableServe.Api.Controllers
             _db = db;
         }
 
+        // POST: api/Staff/login
+        [HttpPost("login")]
+        public async Task<ActionResult<Staff>> Login(Staff credentials)
+        {
+            var staff = await _db.Staff
+                                .SingleOrDefaultAsync(staff => staff.Username == credentials.Username);
+
+            if (staff == null || !BCrypt.Net.BCrypt.Verify(credentials.Password, staff.Password))
+            {
+                return NotFound();
+            }
+
+            return staff;
+        }
+
+
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Staff>>> GetAll()
         {
